@@ -25,7 +25,15 @@ int main()
     }
     else if(option==4)
     {
-        printf("the divided value is %f",dividef(x,y));
+        float z=dividef(x,y);
+        if(z!=0)
+        {
+            printf("the divided value is %f",dividef(x,y));
+        }
+        else
+        {
+            printf("invalid value of divisor");
+        }
     }
     else
     {
@@ -50,5 +58,9 @@ int multiplyf(int x,int y)
 
 float dividef(int x,int y)
 {
-    return x/(y*1.0);
+    if(y!=0)
+    {
+        return x/(y*1.0);
+    }
+    return 0;
 }
