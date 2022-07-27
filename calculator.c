@@ -33,7 +33,12 @@ int main()
     }
 }
 
-int addition(int x,int y)
+int additionf(int x,int y)
 {
     return x+y;
+}
+
+int subtractionf(int x,int y)
+{
+    return x-y;
 }
