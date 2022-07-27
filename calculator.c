@@ -42,3 +42,8 @@ int subtractionf(int x,int y)
 {
     return x-y;
 }
+
+int multiplyf(int x,int y)
+{
+    return x*y;
+}
