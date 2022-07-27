@@ -32,3 +32,8 @@ int main()
         printf("Enter valid option");
     }
 }
+
+int addition(int x,int y)
+{
+    return x+y;
+}
