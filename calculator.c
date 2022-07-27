@@ -3,7 +3,7 @@
 int additionf(int x,int y);
 int subtractionf(int x,int y);
 int multiplyf(int x,int y);
-int dividef(int x,int y);
+float dividef(int x,int y);
 int main()
 {
     int x,y,option;
@@ -25,7 +25,7 @@ int main()
     }
     else if(option==4)
     {
-        printf("the divided value is %d",dividef(x,y));
+        printf("the divided value is %f",dividef(x,y));
     }
     else
     {
@@ -46,4 +46,9 @@ int subtractionf(int x,int y)
 int multiplyf(int x,int y)
 {
     return x*y;
+}
+
+float dividef(int x,int y)
+{
+    return x/(y*1.0);
 }
