@@ -1,5 +1,12 @@
 # include <stdio.h>
 
+void insertionsort(int a[],int n);
+void selectionsort(int a[],int n);
+void bubblesort(int a[],int n);
+void mergesort(int a[],int n);
+void quicksort(int a[],int n);
+
+
 int main()
 {
     int n;
@@ -16,22 +23,38 @@ int main()
     scanf("%d",&option);
     if(option==1)
     {
-        printf("%d",insertionsort(a));
+        insertionsort(a,n);
     }
     else if(option==2)
     {
-        printf("%d",selectionsort(a));
+        selectionsort(a,n);
     }
     else if(option==3)
     {
-        printf("%d",bubblesort(a));
+        bubblesort(a,n);
     }
     else if(option==4)
     {
-        printf("%d",mergesort(a));
+        mergesort(a,n);
     }
     else if(option==5)
     {
-        printf("%d",quicksort(a));
+        quicksort(a,n);
     }
+}
+
+void insertionsort(int a[],int n)
+{ 
+    int i, key, j; 
+    for (i = 1; i < n; i++)
+    { 
+        key = a[i]; 
+        j = i - 1; 
+        while (j >= 0 && a[j] > key)
+        { 
+            a[j + 1] = a[j]; 
+            j = j - 1; 
+        } 
+        a[j + 1] = key; 
+    } 
 }
