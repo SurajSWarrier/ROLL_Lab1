@@ -4,7 +4,8 @@ void insertionsort(int a[],int n);
 void selectionsort(int a[],int n);
 void bubblesort(int a[],int n);
 void mergesort(int arr[], int l, int r);
-void quicksort(int a[],int n);
+void quicksort(int arr[], int low, int high);
+void printArray(int A[], int size);
 
 
 int main()
@@ -24,22 +25,31 @@ int main()
     if(option==1)
     {
         insertionsort(a,n);
+        printArray(a,n);
     }
     else if(option==2)
     {
         selectionsort(a,n);
+        printArray(a,n);
     }
     else if(option==3)
     {
         bubblesort(a,n);
+        printArray(a,n);
     }
     else if(option==4)
     {
         mergesort(a,0,n-1);
+        printArray(a,n);
     }
     else if(option==5)
     {
-        quicksort(a,n);
+        quicksort(a,0,n-1);
+        printArray(a,n);
+    }
+    else
+    {
+        printf("invalid option");
     }
 }
 
@@ -134,8 +144,8 @@ void mergesort(int arr[], int l, int r)
     if (l < r) {
         int m = l + (r - l) / 2;
  
-        mergeSort(arr, l, m);
-        mergeSort(arr, m + 1, r);
+        mergesort(arr, l, m);
+        mergesort(arr, m + 1, r);
  
         merge(arr, l, m, r);
     }
@@ -147,4 +157,33 @@ void printArray(int A[], int size)
     for (i = 0; i < size; i++)
         printf("%d ", A[i]);
     printf("\n");
+}
+
+int partition (int arr[], int low, int high) 
+{ 
+    int pivot = arr[high];
+    int i = (low - 1); 
+  
+    for (int j = low; j <= high - 1; j++) 
+    { 
+
+        if (arr[j] < pivot) 
+        { 
+            i++;
+            swap(&arr[i], &arr[j]); 
+        } 
+    } 
+    swap(&arr[i + 1], &arr[high]); 
+    return (i + 1); 
+} 
+  
+
+void quicksort(int arr[], int low, int high) 
+{ 
+    if (low < high) 
+    { 
+        int pi = partition(arr, low, high); 
+        quicksort(arr, low, pi - 1); 
+        quicksort(arr, pi + 1, high); 
+    } 
 }
